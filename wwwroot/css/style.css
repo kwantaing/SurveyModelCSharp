@@ -13,7 +13,6 @@ html{
 form{
     width:40%;
     display:inline-block;
-    position:relative;
 }
 form label{
     margin:10px 0;
@@ -27,8 +26,6 @@ textarea{
     height:40px;
     margin:15px 0;
 }
-.submit{
-    position:absolute;
-    bottom:0;
-    right:0;
+.error{
+    color:red;
 }

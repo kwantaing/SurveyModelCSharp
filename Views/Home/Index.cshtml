@@ -10,9 +10,21 @@
 <body>
     <div class="main">
         <h1>Dojo Survey</h1>
-        <form action="/submit" method="post">
+        @model Survey
+        <form asp-action="Submit" asp-controller="Home" method="post">
+            <span  class="error" asp-validation-for="name"></span>
             <label for="name">Your Name:<input type="text" name="name"></label>
-            <label for="location">Dojo Location:<input type="text" name="location"></label>
+            <span  class="error" asp-validation-for="location"></span>
+            <label for="location">Dojo Location:
+                <select name="location">
+                    <option value="OC">OC</option>
+                    <option value="Burbank">Burbank</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Berkeley">Berkeley</option>
+                </select>
+            </label>
+            <span  class="error" asp-validation-for="language"></span>
             <label for="language">Favorite Language:
             <select name="language">
                 <option value="C#">C#</option>
@@ -20,8 +32,9 @@
                 <option value="JavaScript">JavaScipt</option>
                 </select>
             </label>
-            <label for="comments">Comments(Optional):</label>
-            <textarea name="comments"></textarea>
+            <label asp-for="comments"></label>
+            <span class="error" asp-validation-for="comments"></span>
+            <textarea name="comments"></textarea><hr>
             <button class="submit">Submit</button>
         </form>
     </div>

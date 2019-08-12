@@ -17,9 +17,12 @@ namespace SurveyWithModel.Controllers
         {
             return View("Index");
         }
-        [HttpPost("submit")]
         public IActionResult Submit(Survey Submission){
-            return View("Result",Submission);
+            if(ModelState.IsValid){
+                return View("Result",Submission);
+            }else{
+                return View("Index");
+            }
         }
     }
 }
